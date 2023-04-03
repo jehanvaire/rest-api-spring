@@ -35,11 +35,12 @@ public class LiveStreamRepository {
                 .orElse(null);
     }
 
-    public void add(LiveStream stream) {
+    public LiveStream create(LiveStream stream) {
         streams.add(stream);
+        return stream;
     }
 
-    public void update(LiveStream stream) {
+    public void update(LiveStream stream, String id) {
         LiveStream streamToUpdate = getById(stream.id());
         if (streamToUpdate != null) {
             streamToUpdate = stream;
